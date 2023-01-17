@@ -1,0 +1,20 @@
+﻿@model MvcOnlineTicariOtomasyon1.Models.Siniflar.Departman
+@{
+    ViewBag.Title = "DepartmanAdd";
+    Layout = "~/Views/Shared/_AdminLayout1.cshtml";
+}
+
+<br />
+<h3>Yeni Departman Ekle</h3>
+<br />
+<form class="form-group" method="post">
+    <!-- Form grup açtık post ediyoruz.-->
+    @Html.LabelFor(d => d.DepartmanAd)
+    @Html.TextBoxFor(d => d.DepartmanAd, new { @class = "form-control" })          <!-- Toolbox tarzı html için .-->
+    <br />
+    @Html.LabelFor(d => d.Durum)
+    @Html.TextBoxFor(d => d.Durum, new { @class = "form-control" })
+    <br/>
+    <button class="btn btn-success">Kaydet</button>
+</form>
+

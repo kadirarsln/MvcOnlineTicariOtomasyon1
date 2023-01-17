@@ -1,0 +1,35 @@
+﻿@model MvcOnlineTicariOtomasyon1.Models.Siniflar.Faturalar
+@{
+    ViewBag.Title = "FaturaAdd";
+    Layout = "~/Views/Shared/_AdminLayout1.cshtml";
+}
+
+<br />
+<h3>Yeni Fatura Girişi</h3>
+<br />
+<form class="form-group" method="post">
+    <!-- Form grup açtık post ediyoruz.-->
+    @Html.LabelFor(f => f.FaturaSeriNo)
+    @Html.TextBoxFor(d => d.FaturaSeriNo, new { @class = "form-control" })          <!-- Toolbox tarzı html için .-->
+    <br />
+    @Html.LabelFor(f => f.FaturaSıraNo)
+    @Html.TextBoxFor(f => f.FaturaSıraNo, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(f => f.VergiDairesi)
+    @Html.TextBoxFor(f => f.VergiDairesi, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(f => f.Tarih)
+    @Html.TextBoxFor(f => f.Tarih, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(f => f.Saat)
+    @Html.TextBoxFor(f => f.Saat, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(f => f.TeslimEden)
+    @Html.TextBoxFor(f => f.TeslimEden, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(f => f.TeslimAlan)
+    @Html.TextBoxFor(f => f.TeslimAlan, new { @class = "form-control" })
+    <br/>
+    <button class="btn btn-success">Kaydet</button>
+</form>
+

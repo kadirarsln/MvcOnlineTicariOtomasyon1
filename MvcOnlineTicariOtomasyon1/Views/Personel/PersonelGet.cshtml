@@ -1,0 +1,32 @@
+﻿@model MvcOnlineTicariOtomasyon1.Models.Siniflar.Personel
+@{
+    ViewBag.Title = "PersonelGet";
+    Layout = "~/Views/Shared/_AdminLayout1.cshtml";
+}
+
+<br />
+<h4>Personel Güncelleme</h4>
+<br />
+@using (Html.BeginForm("PersonelUpdate", "Personel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        @Html.HiddenFor(p => p.PersonelID)
+        @Html.LabelFor(p => p.PersonelAd)
+        @Html.TextBoxFor(p => p.PersonelAd, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.PersonelSoyad, "", new { @style = "color: red" })
+        <br />
+        @Html.LabelFor(p => p.PersonelSoyad)
+        @Html.TextBoxFor(p => p.PersonelSoyad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.PersonelSoyad, "", new { @style = "color: red" })
+        <br />
+        @Html.LabelFor(p => p.PersonelGorsel)
+        <input type="file" name="PersonelGorsel"/>
+        <br />
+        @Html.LabelFor(p => p.Departman)
+        @Html.DropDownListFor(p => p.Departmanid, (List<SelectListItem>)ViewBag.departmanList1, //Kategorileri listeleme kısmı için kullandık.
+            new { @class = "form-control" })
+    </div>
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+}
+

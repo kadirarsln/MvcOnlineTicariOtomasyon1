@@ -1,0 +1,32 @@
+﻿@model MvcOnlineTicariOtomasyon1.Models.Siniflar.SatisHareket
+@{
+    ViewBag.Title = "SatisHareketAdd";
+    Layout = "~/Views/Shared/_AdminLayout1.cshtml";
+}
+<br />
+<h3>Yeni Satış Yap</h3>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(sh => sh.Urun)
+    @Html.DropDownListFor(sh => sh.Urunid, (List<SelectListItem>)ViewBag.urunList1,       //Kategorileri listeleme kısmı için kullandık.
+        new { @class = "form-control" })
+    <br />
+    @Html.Label("Cari")
+    @Html.DropDownListFor(sh => sh.Cariid, (List<SelectListItem>)ViewBag.cariList1,       //Kategorileri listeleme kısmı için kullandık.
+        new { @class = "form-control" })
+    <br/>
+    @Html.LabelFor(sh => sh.Personel)
+    @Html.DropDownListFor(sh => sh.Personelid, (List<SelectListItem>)ViewBag.personelList1,       //Kategorileri listeleme kısmı için kullandık.
+        new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(sh => sh.Adet)
+    @Html.TextBoxFor(sh => sh.Adet, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(sh => sh.Fiyat)
+    @Html.TextBoxFor(sh => sh.Fiyat, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(sh => sh.ToplamTutar)
+    @Html.TextBoxFor(sh => sh.ToplamTutar, new { @class = "form-control" })
+    <button class="btn btn-success">Satış Yap</button>
+</form>
+

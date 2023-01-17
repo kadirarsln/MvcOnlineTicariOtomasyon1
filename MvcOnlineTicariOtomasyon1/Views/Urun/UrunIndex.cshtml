@@ -1,0 +1,56 @@
+﻿@using MvcOnlineTicariOtomasyon1.Models.Siniflar;
+@model List<Urun>
+@{
+    ViewBag.Title = "UrunIndex";
+    Layout = "~/Views/Shared/_AdminLayout1.cshtml";
+}
+<br />
+@using (Html.BeginForm("UrunIndex", "Urun", FormMethod.Get))
+{
+    <p>
+        Ürün Ara: @Html.TextBox("ara")
+        <input type="submit" value="Ara" />
+    </p>
+
+}
+<br />
+<h5>ÜRÜNLER</h5>
+<br />
+<table id="tbl_urun" class="table table-bordered">
+    <tr>
+        <th>ÜRÜN</th>
+        <th>MARKA</th>
+        <th>STOK</th>
+        <th>ALIŞ FİYAT</th>
+        <th>SATIŞ FİYAT</th>
+        <th>KATEGORİ</th>
+        <th>GÖRSEL</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+        <th>SATIŞ YAP</th>
+
+    </tr>
+    @foreach (var _urun in Model)
+    {
+<tr>
+    <td>@_urun.UrunAd</td>
+    <td>@_urun.Marka</td>
+    <td>@_urun.Stok</td>
+    <td>@_urun.AlısFiyat ₺</td>
+    <td>@_urun.SatısFiyat ₺</td>
+    <td>@_urun.Kategori.KategoriAd</td>
+    <td><img src="@_urun.UrunGorsel" style="width: 100px; height: 50px" /></td>
+    <td>
+        <a href="/Urun/UrunDelete/@_urun.UrunID" class="btn btn-danger">Sil</a>
+    </td>
+    <td>
+        <a href="/Urun/UrunGet/@_urun.UrunID" class="btn btn-warning">Güncelle</a>
+    </td>
+    <td>
+        <a href="/Urun/SatisYap/@_urun.UrunID" class="btn btn-primary">Satış Yap</a>
+    </td>
+</tr>
+    }
+</table>
+<a href="/Urun/UrunAdd/" class="btn btn-outline-primary">Yeni Ürün Ekle</a>
+

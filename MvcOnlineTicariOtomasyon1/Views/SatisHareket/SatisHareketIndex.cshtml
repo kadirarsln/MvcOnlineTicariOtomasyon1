@@ -1,0 +1,59 @@
+﻿@using MvcOnlineTicariOtomasyon1.Models.Siniflar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "SatisHareketIndex";
+    Layout = "~/Views/Shared/_AdminLayout1.cshtml";
+}
+
+<table id="tbl_satisHareket" class="table table-bordered" style="margin-top: 25px;">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>ÜRÜN</th>
+            <th>CARİ</th>
+            <th>PERSONEL</th>
+            <th>ADET</th>
+            <th>FİYAT</th>
+            <th>TOPLAM</th>
+            <th>TARİH</th>
+            <th>DETAYLAR</th>
+            <th>GÜNCELLE</th>
+        </tr>
+    </thead>
+    @foreach (var _satisHareket in Model)
+    {
+        <tr>
+            <td>@_satisHareket.SatısID</td>
+            <td>@_satisHareket.Urun.UrunAd</td>
+            <td>@_satisHareket.Cariler.CariAd @_satisHareket.Cariler.CariSoyad</td>
+            <td>@_satisHareket.Personel.PersonelAd @_satisHareket.Personel.PersonelSoyad</td>
+            <td>@_satisHareket.Adet</td>
+            <td>@_satisHareket.Fiyat</td>
+            <td>@_satisHareket.ToplamTutar</td>
+            <td>@_satisHareket.Tarih</td>
+            <td><a href="/SatisHareket/SatisHareketGet/@_satisHareket.SatısID" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/SatisHareket/SatisHareketDetay/@_satisHareket.SatısID" class="btn btn-info">Detaylar</a></td>
+        </tr>
+    }
+</table>
+<a href="/SatisHareket/SatisHareketAdd" class="btn btn-outline-primary">Yeni Satış Ekle</a>
+
+
+<!--DataTable Kullanımı sağladık.-->
+@*<link href="~/Content/bootstrap.css" rel="stylesheet" />*@
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+
+    $('#tbl_satisHareket').dataTable({});
+
+</script>

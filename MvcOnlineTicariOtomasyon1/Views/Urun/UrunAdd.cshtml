@@ -1,0 +1,36 @@
+﻿@model MvcOnlineTicariOtomasyon1.Models.Siniflar.Urun
+@{
+    ViewBag.Title = "UrunAdd";
+    Layout = "~/Views/Shared/_AdminLayout1.cshtml";
+}
+<br />
+<h3>Yeni Ürün Ekle</h3>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(u => u.UrunAd)
+    @Html.TextBoxFor(u => u.UrunAd, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(u => u.Marka)
+    @Html.TextBoxFor(u => u.Marka, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(u => u.Stok)
+    @Html.TextBoxFor(u => u.Stok, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(u => u.AlısFiyat)
+    @Html.TextBoxFor(u => u.AlısFiyat, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(u => u.SatısFiyat)
+    @Html.TextBoxFor(u => u.SatısFiyat, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(u => u.Kategori)
+    @Html.DropDownListFor(u => u.Kategoriid, (List<SelectListItem>)ViewBag.kategoriList1,       //Kategorileri listeleme kısmı için kullandık.
+        new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(u => u.UrunGorsel)
+    @Html.TextBoxFor(u => u.UrunGorsel, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(u => u.Durum)
+    @Html.TextBoxFor(u => u.Durum, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Kaydet</button>
+</form>

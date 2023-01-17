@@ -1,0 +1,18 @@
+﻿@model MvcOnlineTicariOtomasyon1.Models.Siniflar.Kategori
+@{
+    ViewBag.Title = "KategoriGet";
+    Layout = "~/Views/Shared/_AdminLayout1.cshtml";
+}
+<br />
+<h4>Kategori Güncelleme</h4>
+<br />
+@using (Html.BeginForm("KategoriUpdate", "Kategori1", FormMethod.Post))        //Sayfa yüklendikten sonra post işlemi oolunca hangi actionresult çalışacak.
+{
+    <div class="form-group">
+        @Html.LabelFor(k => k.KategoriAd)
+        @Html.TextBoxFor(k =>k.KategoriAd, new { @class = "form-control" })   
+        @Html.HiddenFor(k=>k.KategoriID)                                        <!-- Gizli id getirdik güncelleme olması için-->
+    </div>
+    <br/>
+    <button class="btn btn-warning">Güncelle</button>
+}                 

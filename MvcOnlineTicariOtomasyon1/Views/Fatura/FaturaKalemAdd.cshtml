@@ -1,0 +1,28 @@
+﻿@model MvcOnlineTicariOtomasyon1.Models.Siniflar.FaturaKalem
+@{
+    ViewBag.Title = "FaturaKalemAdd";
+    Layout = "~/Views/Shared/_AdminLayout1.cshtml";
+}
+
+<br />
+<h3>Yeni Fatura Kalem Girişi</h3>
+<br />
+<form class="form-group" method="post">
+    <!-- Form grup açtık post ediyoruz.-->
+    @Html.LabelFor(fk => fk.Acıklama)
+    @Html.TextBoxFor(fk => fk.Acıklama, new { @class = "form-control" })          <!-- Toolbox tarzı html için .-->
+    <br />
+    @Html.LabelFor(fk => fk.Miktar)
+    @Html.TextBoxFor(fk => fk.Miktar, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(fk => fk.BrimFiyat)
+    @Html.TextBoxFor(fk => fk.BrimFiyat, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(fk => fk.Tutar)
+    @Html.TextBoxFor(fk => fk.Tutar, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(fk => fk.Faturaid)
+    @Html.TextBoxFor(fk => fk.Faturaid, new { @class = "form-control" })
+    <br/>
+    <button class="btn btn-success">Kaydet</button>
+</form>
